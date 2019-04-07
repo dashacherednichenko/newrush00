@@ -28,9 +28,9 @@
                     <div class="my-cart">
                         <p class="error"></p>
                         <form method="post" action="oder.php" id="shopOrderForm">
-<!--                            <input type="hidden" name="order" value="1">-->
+                            <input type="hidden" name="order" value="1">
 <!--                            <input type="hidden" name="id" value="">-->
-<!--                            <input type="hidden" name="name" value="">-->
+                            <input type="hidden" name="name" value="">
 <!--                            <input type="hidden" name="count" value="">-->
 <!--                            <input type="hidden" name="price" value="">-->
                             <table cellpadding="3">
