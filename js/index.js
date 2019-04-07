@@ -20,7 +20,7 @@ contacts_div.onmouseleave = function() {
     contacts_div.setAttribute('style', 'display:none');
 };
 function checkbasket() {
-    if (localStorage.getItem('cart') != null)
+    if (localStorage.getItem('cart').length != null)
     {
         cart = JSON.parse(localStorage.getItem('cart'));
     }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Create account</title>
-	<link rel="stylesheet" type="text/css" href="templates/styles/create.css">
+	<link rel="stylesheet" type="text/css" href="../../../../Downloads/rush2%202/templates/styles/create.css">
 </head>
 <body>
 	<h1 style="text-align: center"><a href="auth.php" style="text-decoration: none;color: crimson">Create an account</a></h1>
@@ -53,7 +53,8 @@
 				header('Location: create.php');
 				exit();
 			}
-			$count_a++;
+			else if ($value['type'] && $value['type'] == 'admin')
+				$count_a++;
 		}
 		if ($count_a > 0)
 			$data['type'] = 'user';
@@ -65,7 +66,7 @@
 		$data['passwd'] = hash('whirlpool', $_POST['passwd']);
 		$mass[] = $data;
 		file_put_contents("./private/users", serialize($mass));
-		header('Location: auth.php');
+		header('Location: index.php');
 	}
 	else
 		eader('Location: create.php');

@@ -19,7 +19,7 @@
 		}
 		file_put_contents("./private/users", serialize($mass));
 		if ($count != 0)
-			header('Location: auth.php');
+			header('Location: header.php');
 		else
 			header('Location: settings.php');
 	}
@@ -29,7 +29,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Settings</title>
-	<link rel="stylesheet" type="text/css" href="templates/styles/create.css">
+	<link rel="stylesheet" type="text/css" href="../../../../Downloads/rush2%202/templates/styles/create.css">
 </head>
 <body>
 	<h1 class="title" style="text-align: center"><a href="auth.php" style="text-decoration: none;color: crimson">Settings</a></h1>

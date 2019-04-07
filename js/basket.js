@@ -3,6 +3,8 @@ var basket = document.getElementById('full_table');
 var basket_summ = document.getElementById('price_total');
 var response;
 document.addEventListener('DOMContentLoaded', function(){
+    checkbasket();
+    // console.log('localStorage', localStorage.getItem('cart'));
     if (localStorage.getItem('cart').length > 2) {
         document.getElementById('full').setAttribute('style', 'display:block');
           console.log('111how', localStorage.getItem('cart').length);
@@ -99,7 +101,7 @@ function show_big_cart(response) {
             '</span></div><div class="desc-itm-bundle"><div class="col-2" style="float:left"><span>Ціна</span><p>\n' +
             ' <b class="product_price">'+response[key]['cost']+
             '</b><span class="currency">грн.</span></p></div> <div class="col-2" style="float:left"><span>Кількість</span>' +
-            '<button class="minus" onclick="ft_minus('+key+','+response[key]['cost']+')" type="button" data-art="'+key+'">-</button><input class="shk-count" type="text" style="border:none" size="2" name="count[]" id="inp_count_'+key+'"maxlength="3" title="змінити кількість" value="'+cart[key]+
+            '<button class="minus" onclick="ft_minus('+key+','+response[key]['cost']+')" type="button" data-art="'+key+'">-</button><input class="shk-count" type="text" style="border:none;width:25px" size="2" name="count[]" id="inp_count_'+key+'"maxlength="3" title="змінити кількість" value="'+cart[key]+
             '"><button class="plus" onclick="ft_plus('+key+','+response[key]['cost']+')" type="button"  data-art="'+key+'">+</button></div><div class="col-2" style="float:left"><span>Сума</span><p><b id="total_'+key+'">'+cart[key]*response[key]['cost']+'</b><span class="currency">грн.</span></p>\n' +
             '</div></div></b></td><td><a title="Видалити" class="shk-del"><button class="delete" onclick="ft_delete('+key+')" data-art="'+key+'">x</button></a></td><tr>';
         total += cart[key]*response[key]['cost'];

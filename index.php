@@ -1,4 +1,7 @@
 <?php
+session_start();
+if (!$_SESSION['instal'])
+    exit("NEED TO INSTALL FIRST!!!");
 $route = $_GET['route'];
 require 'templates/header.php';
 switch ($route){

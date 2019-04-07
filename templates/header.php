@@ -1,4 +1,30 @@
 <?php
+session_start();
+if ($_POST['email'])
+{
+    if (!file_exists("./private/users"))
+        file_put_contents('./private/users', '');
+    $mass = unserialize(file_get_contents("./private/users"));
+    foreach ($mass as $value)
+    {
+        if ($value['email'] == $_POST['email'] || $value['email'] == $_SESSION['loggued_on_user'])
+            $type = $value['type'];
+    }
+}
+if ($type == 'admin')
+{
+    $_SESSION['loggued_on_user'] = $_POST['email'];
+    header('Location: admin.php');
+}
+//else{
+//    $_SESSION['loggued_on_user'] = "";
+//    header('Location: index.php');
+//}
+if ($_POST['submit'] && $_POST['submit'] == "LOG OUT")
+{
+    $_SESSION['loggued_on_user'] = "";
+    header('Location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -126,7 +152,56 @@
                         <a onclick="close_auth_div()">
                             <img src="templates/images/close_window.png" alt="" class="" id="close_window">
                         </a>
-                        <form><span>TEDHGF</span></form>
+<?php
+    include "checking.php";
+    if ($_POST['email'])
+    {
+        if (!file_exists("./private/users"))
+            file_put_contents('./private/users', '');
+        $mass = unserialize(file_get_contents("./private/users"));
+        foreach ($mass as $value)
+        {
+            if ($value['email'] == $_POST['email'] || $value['email'] == $_SESSION['loggued_on_user'])
+                $type = $value['type'];
+        }
+    }
+    if ($_POST['submit'] && $_POST['submit'] == "LOG OUT")
+    {
+        $_SESSION['loggued_on_user'] = "";
+        header('Location: index.php');
+    }
+    if (($_POST['email'] && $_POST['passwd'] && $_POST['submit']
+        && $_POST['submit'] == 'LOG IN') || $_SESSION['loggued_on_user'])
+    {
+        if ((auth($_POST['email'], $_POST['passwd']) && $type != 'admin') || ($_SESSION['loggued_on_user'] && $type != 'admin'))
+        {
+            echo $_SESSION['loggued_on_user'] . "lol";
+            if ($_SESSION['loggued_on_user'] == "")
+                $_SESSION['loggued_on_user'] = $_POST['email'];
+?>
+                        <form action="index.php" method="POST" class="login">
+                            Welcome: <?php echo $_SESSION['loggued_on_user'];?>
+                            <br>
+                            <a href="settings.php" style="color: black">Settings</a><input type="submit" name="submit" value="LOG OUT" style="margin-left: 3%;">
+                        </form>
+<?php
+        }
+    }
+    else
+    {
+?>
+                        <form action="index.php" method="POST" class="login">
+                            Email Address: <input type="text" name="email" value="" placeholder="example@gmail.com">
+                            <br>
+                            Password: <input type="password" name="passwd" value="" placeholder="Password">
+                            <br>
+                            <input type="submit" name="submit" value="LOG IN">
+                            <br />
+                            <a href="create.php" style="color: black">Create an account</a>
+                        </form>
+<?php
+    }
+?>
                     </div>
                 </div>
             </div>

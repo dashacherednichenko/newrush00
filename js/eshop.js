@@ -2,7 +2,7 @@ var cart = {};
 
 document.addEventListener('DOMContentLoaded', function(){
     loadinggoods();
-    // checkbasket();
+    checkbasket();
     // showbasket();
 //    console.log("TEST");
 });

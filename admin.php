@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	if (!$_SESSION['loggued_on_user'])
+        header('Location: index.php');
 	if (($_POST['user'] && $_POST['submit'] &&
 		$_POST['submit'] === 'Choose') || $_SESSION['loggued_on_user'])
 	{
@@ -10,7 +12,7 @@
 		{
 			if ($value['email'] == $_SESSION['loggued_on_user'])
 				if ($value['type'] != 'admin')
-					header('Location: auth.php');
+					header('Location: index.php');
 			if ($value['email'] == $_POST['user'])
 			{
 				$_SESSION['name'] = $value['name'];
@@ -24,7 +26,7 @@
 	if ($_POST['submit'] && $_POST['submit'] == "LOG OUT")
 	{
 		$_SESSION['loggued_on_user'] = "";
-		header('Location: auth.php');
+		header('Location: index.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -32,7 +34,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Admin</title>
-	<link rel="stylesheet" type="text/css" href="templates/styles/create.css">
+	<link rel="stylesheet" type="text/css" href="../../../../Downloads/rush2%202/templates/styles/create.css">
 </head>
 <body>
 	<h1 style="text-align: center"><a href="admin.php" style="text-decoration: none;color: crimson">Welcome Mark Zuckerberg!</a></h1>
@@ -45,7 +47,7 @@
 				$mass = unserialize(file_get_contents("./private/users"));
 				for ($i = 0; $i <= count($mass); $i++)
 				{
-					if ($mass[$i]['email'] != 'admin@gmail.com' && $mass[$i]['email'])
+					if ($mass[$i]['email'] && $mass[$i]['email'] != $_SESSION['loggued_on_user'])
 					{
 			?>
 			<option value=<?php echo $mass[$i]['email']?>><?php echo $mass[$i]['email']?></option>
@@ -86,7 +88,7 @@
 		if ($count = 1)
 			header('Location: admin.php');
 		else
-			header('Location: auth.php');
+			header('Location: index.php');
 	}
 	else if ($_POST['name'] && $_POST['mobile'] && $_POST['passwd'] && $_POST['type'] && $_POST['submit'] && $_POST['submit'] == 'Change')
 	{
@@ -96,7 +98,7 @@
 		$count = 0;
 		foreach ($mass as $key => $value)
 		{
-			if ($_POST['del'] == "Delete thi user" && $value['email'] == $_SESSION['email'])
+			if ($_POST['del'] == "Delete this user" && $value['email'] == $_SESSION['email'])
 			{
 				unset($value);
 				header('Location: admin.php');
@@ -112,6 +114,6 @@
 		}
 		file_put_contents("./private/users", serialize($mass));
 		if ($count != 0)
-			header('Location: auth.php');
+			header('Location: index.php');
 	}
 ?>
