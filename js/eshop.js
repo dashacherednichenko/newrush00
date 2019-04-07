@@ -15,7 +15,7 @@ function add_to_cart(prod) {
     else
         cart[id] = 1;
     localStorage.setItem('cart', JSON.stringify(cart));
-    showbasket();
+    showbasket(cart);
     console.log(cart);
 }
 

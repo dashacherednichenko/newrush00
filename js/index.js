@@ -8,10 +8,6 @@ function close_auth_div(){
 }
 document.addEventListener('DOMContentLoaded', function(){
     checkbasket();
-    showbasket();
-
-    // activeA();
-//    console.log("TEST");
 });
 
 var contacts = document.getElementById('contacts-show');
@@ -28,10 +24,11 @@ function checkbasket() {
     {
         cart = JSON.parse(localStorage.getItem('cart'));
     }
+    showbasket(cart);
     console.log("CART", cart);
 }
 
-function showbasket() {
+function showbasket(cart) {
     var out = 0;
     for (var i in cart) {
         out += cart[i];
@@ -44,12 +41,13 @@ function showbasket() {
             how_much.setAttribute('style', 'display:block');
             how_much.innerHTML = out;
             console.log('how_much', how_much);
+            basket.src = 'templates/images/icons8-shopping-bag-full-50.png';
         }
         else {
             how_much.setAttribute('style', 'display:none');
             console.log('111how', how_much);
+            basket.src = 'templates/images/shopping-bag.png';
         }
-        basket.src = 'templates/images/icons8-shopping-bag-full-50.png';
     }
     // console.log(out);
 }

@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /rush00/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /rush00/index.php?route=$1 [L]
