@@ -1,0 +1,50 @@
+{
+  "101" : {
+    "name" : "Кондиціонер NS/NU-09AHVIwb",
+    "brand" : "Neoclima",
+    "square" : "20-25",
+    "cost" : 10000,
+    "description" : "great product",
+    "image" : "templates/images/goods/nsnu-09ahviwb.jpg"
+  },
+  "102" : {
+    "name" : "Кондиціонер LG A12IWK/A12UWK",
+    "brand" : "LG",
+    "square" : "25-35",
+    "cost" : 18000,
+    "description" : "great product",
+    "image" : "templates/images/goods/a09iwka09uwk_1.jpg"
+  },
+  "103" : {
+    "name" : "Кондицiонер MSZ-LN50VGR-E1/MUZ-LN50VGHZ-ER1",
+    "brand" : "Mitsubishi Electric",
+    "square" : "35-50",
+    "cost" : 25000,
+    "description" : "great product",
+    "image" : "templates/images/goods/mitsubishi_msz-ln25vgr_2.jpg"
+  },
+  "104" : {
+    "name" : "Кондиціонер FTXG50LS/RXG50L",
+    "brand" : "DAIKIN",
+    "square" : "35-50",
+    "cost" : 7800,
+    "description" : "great product",
+    "image" : "templates/images/goods/FTXG_S_Emura.jpg"
+  },
+  "105" : {
+    "name" : "Кондиціонер CA09RWK/CA09UWK",
+    "brand" : "LG",
+    "square" : "20-25",
+    "cost" : 12000,
+    "description" : "great product",
+    "image" : "templates/images/goods/ca09rwkca09uwk.jpg"
+  },
+  "106" : {
+    "name" : "Кондиціонер MSZ-LN50VGB-E1/MUZ-LN50VG-E1",
+    "brand" : "Mitsubishi Electric",
+    "square" : "35-50",
+    "cost" : 10500,
+    "description" : "great product",
+    "image" : "templates/images/goods/mitsubishi_msz-ln25vgb_3.jpg"
+  }
+}

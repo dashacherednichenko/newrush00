@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+	padding: 0;
+	background: cyan;
+	background-size: cover;
+}
+.login {
+	width: 25%;
+	margin: auto;
+	margin-top: 2%;
+	text-align: center;
+	border: 1px solid black;
+}
+input[type="text"]::-webkit-input-placeholder { color: black; }
+input[type="password"]::-webkit-input-placeholder { color: black; }
