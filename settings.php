@@ -32,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="../../../../Downloads/rush2%202/templates/styles/create.css">
 </head>
 <body>
-	<h1 class="title" style="text-align: center"><a href="auth.php" style="text-decoration: none;color: crimson">Settings</a></h1>
+	<h1 class="title" style="text-align: center"><a href="index.php" style="text-decoration: none;color: crimson">Settings</a></h1>
 	<form action="settings.php" method="post" class="form_regist">
 		First and last name:
 		<br>
