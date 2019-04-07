@@ -9,9 +9,14 @@ form {
 	background-size: cover;
 }
 .form_regist {
+	text-align: left;
 	width: 40%;
 	margin: auto;
 	border: 1px solid black;
+}
+.form_regist input {
+	float: right;
+	width:300px;
 }
 .form_input {
 	min-width: 30%;

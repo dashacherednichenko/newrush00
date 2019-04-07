@@ -1036,8 +1036,9 @@ dd {
     border-radius: 12px;
     z-index: 1;
 }
-.opt_payment label, .opt_delivery label{
+.opt_delivery label{
     display:block;
+    margin-bottom: 10px;
 }
 #basket_main .shop-cart-empty {
     min-height: 200px;
@@ -1239,7 +1240,7 @@ select {
     appearance: none;
     border-radius: 0;
 }
-#basket_main input, #basket_main textarea {border: 1px solid #e6e6e6;}
+#basket_main input, #basket_main textarea {border: 1px solid #e6e6e6; width: 220px}
 #shopOrderForm tr {height: 30px;}
 #privat_credit_button {
     display:none;
